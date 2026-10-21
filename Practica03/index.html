@@ -11,6 +11,129 @@
         Angel Lemus | T.S.U en Desarrollo de Software Multiplataforma
     </title>
     <link id="mi-favicon" rel="icon" href="assets/Images/kiwi-bird-solid-full.svg" type="image/svg" />
+    <style>
+        /* ESTILOS ESPECÍFICOS DEL CARRUSEL PARA COINCIDIR EXACTO CON LAS FOTOS */
+        .favoritos-carousel-wrapper {
+            position: relative;
+            max-width: 650px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        .favoritos-track-container {
+            overflow: hidden;
+            width: 100%;
+            border-radius: 16px;
+        }
+
+        .favoritos-track {
+            display: flex;
+            transition: transform 0.4s ease-in-out;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .favoritos-slide {
+            min-width: 100%;
+            box-sizing: border-box;
+            padding: 10px;
+        }
+
+        .favorito-card-custom {
+            background: rgba(20, 25, 45, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .favorito-card-custom h3 {
+            margin-top: 0;
+            margin-bottom: 12px;
+            font-size: 1.2rem;
+            color: #fff;
+        }
+
+        .favorito-card-custom img, 
+        .favorito-card-custom video {
+            width: 100%;
+            max-height: 280px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 12px;
+        }
+
+        .favorito-card-custom h4 {
+            margin: 8px 0 4px 0;
+            font-size: 1.3rem;
+            color: #fff;
+        }
+
+        .favorito-card-custom p {
+            margin: 0;
+            color: #b0b8c4;
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            border: none;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 20;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+            transition: transform 0.2s;
+        }
+
+        .carousel-arrow:hover {
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-arrow.prev {
+            left: -20px;
+            background-color: #e91e63; /* Rosa */
+        }
+
+        .carousel-arrow.next {
+            right: -20px;
+            background-color: #00e676; /* Verde agua */
+        }
+
+        .carousel-indicators-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.4);
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .dot.active {
+            background-color: #e91e63; /* Rosa activo */
+            transform: scale(1.2);
+        }
+    </style>
 </head>
 
 <body>
@@ -20,11 +143,11 @@
             <li class="menu-option"><a href="#inicio">Inicio</a></li>
             <li class="menu-option"><a href="#acerca-de-mi">Sobre mí</a></li>
             <li class="menu-option"><a href="#aspiraciones">Aspiraciones</a></li>
-            <li class="menu-option"><a href="#educacion">Trayectoria educativa</a></li>
-            <li class="menu-option"><a href="#competencias">Competencias</a></li>
             <li class="menu-option"><a href="#hobbies">Hobbies</a></li>
             <li class="menu-option"><a href="#favoritos">Favoritos</a></li>
-            <li class="menu-option"><a href="#redes">Redes</a></li>
+            <li class="menu-option"><a href="#educacion">Educación</a></li>
+            <li class="menu-option"><a href="#competencias">Competencias</a></li>
+            <li class="menu-option"><a href="#redes">Redes sociales</a></li>
         </ul>
     </nav>
 
@@ -59,7 +182,7 @@
 
                 <article>
                     <h3>📍 Ciudad</h3>
-                    <p>Xicotepec / Necaxa, Puebla</p>
+                    <p>Xicotepec de Juárez, Puebla</p>
                 </article>
 
                 <article>
@@ -103,6 +226,91 @@
                 <h3>🎨 Crear</h3>
                 <p>Diseñar sitios web interactivos y visualmente atractivos.</p>
             </article>
+        </div>
+    </section>
+
+    <!-- HOBBIES -->
+    <section id="hobbies" class="seccion solido-2">
+        <h2>Hobbies</h2>
+        <div class="grid">
+            <article class="card">
+                <h3>💻 Programar</h3>
+                <p>Crear soluciones prácticas y proyectos web.</p>
+            </article>
+
+            <article class="card">
+                <h3>🎮 Videojuegos</h3>
+                <p>Explorar mundos digitales y estrategia.</p>
+            </article>
+
+            <article class="card">
+                <h3>🎵 Música</h3>
+                <p>Escuchar música para concentrarme y relajarme.</p>
+            </article>
+
+            <article class="card">
+                <h3>📚 Lectura</h3>
+                <p>Aprender constantemente sobre nuevas tecnologías.</p>
+            </article>
+        </div>
+    </section>
+
+    <!-- FAVORITOS (CARRUSEL IDÉNTICO A TUS CAPTURAS CON REPRODUCTOR DE VIDEO) -->
+    <section id="favoritos" class="seccion solido-4">
+        <h2>Mis Favoritos</h2>
+        <div class="favoritos-carousel-wrapper">
+            <button class="carousel-arrow prev" id="prevBtnFav">&#10094;</button>
+            
+            <div class="favoritos-track-container">
+                <ul class="favoritos-track" id="favTrack">
+                    
+                    <!-- SLIDE 1: PELÍCULA CON VIDEO FUNCIONAL -->
+                    <li class="favoritos-slide">
+                        <article class="favorito-card-custom">
+                            <h3>🎬 Película</h3>
+                            <video controls poster="assets/Images/portadapelicula.jpg" style="width: 100%; max-height: 280px; object-fit: cover; border-radius: 12px; margin-bottom: 12px;">
+                                <source src="assets/video/trailer.mp4" type="video/mp4">
+                                Tu navegador no soporta el reproductor de video.
+                            </video>
+                            <h4>Cars 3</h4>
+                            <p>El legendario Rayo McQueen demuestra que la pasión, la determinación y la tutoría superan a la nueva generación de corredores de alta tecnología.</p>
+                        </article>
+                    </li>
+
+                    <!-- SLIDE 2: CANCIÓN -->
+                    <li class="favoritos-slide">
+                        <article class="favorito-card-custom">
+                            <h3>🎵 Canción favorita</h3>
+                            <img src="assets/Images/portadaAudio.jpg" alt="Down With Me" style="max-height: 200px; width: auto; margin: 0 auto 10px auto; display: block;">
+                            <audio controls style="width: 100%; margin: 10px 0;">
+                                <source src="assets/audio/down-with-me.mp3" type="audio/mpeg">
+                            </audio>
+                            <h4>Down With Me</h4>
+                            <p>Alemán</p>
+                        </article>
+                    </li>
+
+                    <!-- SLIDE 3: LIBRO -->
+                    <li class="favoritos-slide">
+                        <article class="favorito-card-custom">
+                            <h3>📚 Libro favorito</h3>
+                            <img src="assets/Images/portadaLibro.jpg" alt="El amor, las mujeres y la vida" style="max-height: 220px; width: auto; margin: 0 auto 10px auto; display: block;">
+                            <h4>El amor, las mujeres y la vida</h4>
+                            <p>Mario Benedetti</p>
+                        </article>
+                    </li>
+
+                </ul>
+            </div>
+
+            <button class="carousel-arrow next" id="nextBtnFav">&#10095;</button>
+
+            <!-- PUNTOS INDICADORES DE ABAJO -->
+            <div class="carousel-indicators-dots" id="dotsContainer">
+                <span class="dot active" data-index="0"></span>
+                <span class="dot" data-index="1"></span>
+                <span class="dot" data-index="2"></span>
+            </div>
         </div>
     </section>
 
@@ -222,68 +430,6 @@
         </div>
     </section>
 
-    <!-- HOBBIES -->
-    <section id="hobbies" class="seccion solido-2">
-        <h2>Hobbies</h2>
-        <div class="grid">
-            <article class="card">
-                <h3>💻 Programar</h3>
-                <p>Crear soluciones prácticas y proyectos web.</p>
-            </article>
-
-            <article class="card">
-                <h3>🎮 Videojuegos</h3>
-                <p>Explorar mundos digitales y estrategia.</p>
-            </article>
-
-            <article class="card">
-                <h3>🎵 Música</h3>
-                <p>Escuchar música para concentrarme y relajarme.</p>
-            </article>
-
-            <article class="card">
-                <h3>📚 Lectura</h3>
-                <p>Aprender constantemente sobre nuevas tecnologías.</p>
-            </article>
-        </div>
-    </section>
-
-    <!-- FAVORITOS CON CARRUSEL Y PORTADA -->
-    <section id="favoritos" class="seccion solido-4">
-        <h2>Mis Favoritos</h2>
-        <div class="carousel-container">
-            <button class="carousel-btn prev-btn" id="prevBtn">&#10094;</button>
-            <div class="carousel-track-container">
-                <ul class="carousel-track">
-                    <li class="carousel-slide current-slide">
-                        <article class="card favorito-card">
-                            <h3>📹 Película</h3>
-                            <video controls poster="assets/Images/portadapelicula.jpg" style="width: 100%; border-radius: 8px; margin: 10px 0;">
-                                <source src="assets/video/trailer.mp4" type="video/mp4">
-                            </video>
-                            <h4>Interestelar</h4>
-                            <p>Tráiler oficial de la película favorita.</p>
-                        </article>
-                    </li>
-                    <li class="carousel-slide">
-                        <article class="card favorito-card">
-                            <h3>🎶 Música</h3>
-                            <div style="text-align: center;">
-                                <img src="assets/Images/portadaAudio.jpg" alt="Portada Alemán" style="width: 120px; height: 120px; border-radius: 8px; object-fit: cover; margin-bottom: 10px;">
-                                <audio controls style="width: 100%; margin: 10px 0;">
-                                    <source src="assets/audio/down-with-me.mp3" type="audio/mpeg">
-                                </audio>
-                            </div>
-                            <h4>Down With Me</h4>
-                            <p>Alemán</p>
-                        </article>
-                    </li>
-                </ul>
-            </div>
-            <button class="carousel-btn next-btn" id="nextBtn">&#10095;</button>
-        </div>
-    </section>
-
     <!-- REDES SOCIALES CON LOGOS SVG -->
     <section id="redes" class="parallax parallax-5">
         <div class="glass">
@@ -330,6 +476,7 @@
         </div>
     </section>
 
+    <!-- SCRIPT DE INTERACTIVIDAD DETALLES -->
     <script>
         function toggleDetalle(id) {
             const el = document.getElementById(id);
@@ -339,6 +486,49 @@
                 el.style.display = "none";
             }
         }
+    </script>
+
+    <!-- SCRIPT FUNCIONAL DEL CARRUSEL (BOTONES ROSA/VERDE Y PUNTOS) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const track = document.getElementById('favTrack');
+            const slides = Array.from(track.children);
+            const nextButton = document.getElementById('nextBtnFav');
+            const prevButton = document.getElementById('prevBtnFav');
+            const dots = Array.from(document.querySelectorAll('.dot'));
+
+            let currentIndex = 0;
+
+            const updateCarousel = (index) => {
+                track.style.transform = `translateX(-${index * 100}%)`;
+                
+                // Actualizar puntos indicadores
+                dots.forEach((dot, i) => {
+                    if (i === index) {
+                        dot.classList.add('active');
+                    } else {
+                        dot.classList.remove('active');
+                    }
+                });
+            };
+
+            nextButton.addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % slides.length;
+                updateCarousel(currentIndex);
+            });
+
+            prevButton.addEventListener('click', () => {
+                currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+                updateCarousel(currentIndex);
+            });
+
+            dots.forEach((dot) => {
+                dot.addEventListener('click', (e) => {
+                    currentIndex = parseInt(e.target.dataset.index);
+                    updateCarousel(currentIndex);
+                });
+            });
+        });
     </script>
 </body>
 
